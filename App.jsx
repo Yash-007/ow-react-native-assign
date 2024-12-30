@@ -9,11 +9,30 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 
-const PlaceholderScreen = ({ title }) => (
+const HomeScreen = () => (
   <View style={styles.placeholder}>
-    <Text style={styles.placeholderText}>{title}</Text>
+    <Text style={styles.placeholderText}>Home Screen</Text>
   </View>
 );
+
+const CreateScreen = () => (
+  <View style={styles.placeholder}>
+    <Text style={styles.placeholderText}>Create Screen</Text>
+  </View>
+);
+
+const CommunityScreen = () => (
+  <View style={styles.placeholder}>
+    <Text style={styles.placeholderText}>Community Screen</Text>
+  </View>
+);
+
+const ProfileScreen = () => (
+  <View style={styles.placeholder}>
+    <Text style={styles.placeholderText}>My Profile</Text>
+  </View>
+);
+
 
 const BottomTabNavigator = () => (
   <Tab.Navigator
@@ -59,11 +78,11 @@ const BottomTabNavigator = () => (
       headerShown: false,
     })}
   >
-    <Tab.Screen name="Home"component={SearchScreen} />
-    <Tab.Screen name="Discover"  component={() => <PlaceholderScreen title="Discover Screen" />} />
-    <Tab.Screen name="Create" component={() => <PlaceholderScreen title="Create Screen" />} />
-    <Tab.Screen name="Community" component={() => <PlaceholderScreen title="Community Screen" />} />
-    <Tab.Screen name="Me" component={() => <PlaceholderScreen title="My Profile" />} />
+    <Tab.Screen name="Home"component={HomeScreen} />
+    <Tab.Screen name="Discover"  component={SearchScreen} />
+    <Tab.Screen name="Create" component={CreateScreen} />
+    <Tab.Screen name="Community" component={CommunityScreen} />
+    <Tab.Screen name="Me" component={ProfileScreen} />
   </Tab.Navigator>
 );
 
@@ -97,8 +116,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   placeholderText: {
-    fontSize: 20,
+    fontSize: 30,
     color: 'gray',
+    fontWeight:'800'
   },
 });
 
