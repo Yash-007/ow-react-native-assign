@@ -1,11 +1,9 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeAreaView, useColorScheme, View, Text, StyleSheet, Image } from 'react-native';
 import SearchScreen from './src/screens/SearchScreen'; 
 
-const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 
@@ -90,22 +88,16 @@ const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <NavigationContainer>
-      <SafeAreaView
-        style={{
-          flex: 1,
-          backgroundColor: isDarkMode ? '#000' : '#fff',
-        }}
-      >
-        <Stack.Navigator initialRouteName="MainTabs">
-          <Stack.Screen
-            name="MainTabs"
-            component={BottomTabNavigator}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator>
-      </SafeAreaView>
-    </NavigationContainer>
+<NavigationContainer>
+  <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: isDarkMode ? '#000' : '#fff',
+    }}
+  >
+    <BottomTabNavigator />
+  </SafeAreaView>
+</NavigationContainer>
   );
 };
 
